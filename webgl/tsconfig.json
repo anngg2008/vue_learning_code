@@ -1,0 +1,4 @@
+{
+    "compilerOptions": { "target": "es2020" },
+    "files": ["webgl_utils.ts"]
+}
