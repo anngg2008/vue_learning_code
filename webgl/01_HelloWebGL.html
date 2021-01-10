@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 
 <head>
+    <meta charset="utf-8" />
     <title>Hello, WebGL</title>
     
-    <!-- <script src="webgl_utils.js" type="text/javascript"></script> -->
-    <!-- <script src="matrix_utils.js" type="text/javascript"></script> -->
+    <script src="webgl_utils.js" type="text/javascript"></script>
+    <script src="matrix_utils.js" type="text/javascript"></script>
     <script id="vertex-shader" type="x-shader/x-vertex">
-        attribute vec3 pos;
-        attribute vec3 color;
+        attribute lowp vec3 pos;
+        attribute lowp vec3 color;
         varying vec3 out_color;
         void main() {
             gl_Position = vec4(pos, 1.0);
@@ -15,7 +16,7 @@
         }
     </script>
     <script id="fragment-shader" type="x-shader/x-fragment">
-        varying vec4 out_color;
+        varying lowp vec3 out_color;
         void main(){
             gl_FragColor = vec4(out_color, 1.0);
         }

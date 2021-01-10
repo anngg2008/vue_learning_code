@@ -14,6 +14,15 @@ class mat4 {
         }
     }
 
+    static identity(): mat4 {
+        return new mat4([
+            1.0, 0.0, 0.0, 0.0,
+            0.0, 1.0, 0.0, 0.0,
+            0.0, 0.0, 1.0, 0.0,
+            0.0, 0.0, 0.0, 1.0
+        ]);
+    }
+
     row(index: number): Array<GLfloat> {
         if(0 <= index && index < 4) {
             let ret_data = this._data.filter((_, i) => {
@@ -38,7 +47,13 @@ class mat4 {
         return null;
     }
 
-    add(rhs: mat4): mat4 {
+    addNumber(rhs: GLfloat): mat4 {
+        let ret_data = this._data.map(v => { return v + rhs; });
+
+        return new mat4(ret_data);
+    }
+
+    addMat4(rhs: mat4): mat4 {
         let ret_data = new Array<GLfloat>();
 
         Array.from({ length: 16 }, (_, k) => { return k; }).forEach(index => {
