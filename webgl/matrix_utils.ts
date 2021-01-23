@@ -108,7 +108,7 @@ class mat4 {
                 });
             });
         }
-        
+
         return new mat4(ret_data);
     }
 
